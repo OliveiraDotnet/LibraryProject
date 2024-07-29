@@ -1,0 +1,6 @@
+@LibraryNet.Web.Api_HostAddress = http://localhost:5075
+
+GET {{LibraryNet.Web.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
