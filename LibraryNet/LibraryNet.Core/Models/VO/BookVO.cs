@@ -1,20 +1,20 @@
 ﻿using LibraryNet.Core.Enums;
 
-namespace LibraryNet.Core.Models
+namespace LibraryNet.Core.Models.VO
 {
-    public class Book
+    public class BookVO
     {
         public string Id { get; set; }
         public string Name { get; set; }
         public string Edition { get; set; }
-        public Author Author { get; set; }
+        public string Author { get; set; }
         public string ReleaseYear { get; set; }
         public decimal Price { get; set; }
         public LiteraryGenre Category { get; set; }
-        public PublishCompany PublishCompany { get; set; }
+        public string PublishCompany { get; set; }
         public int NumberPages { get; set; }
         public string Review { get; set; }
         public string Description { get; set; }
-        public IEnumerable<Language> Translations { get; set; }
+        public List<Language> Translations { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LibraryNet.Core.Configuration;
 using LibraryNet.Utils;
 
 namespace LibraryNet.Web.Api.Application
@@ -7,7 +8,7 @@ namespace LibraryNet.Web.Api.Application
     {
         public AutoMapperManager()
         {
-            //AddProfile<ApiPerfilMapeamento>();
+            AddProfile<MappingProfileCore>();
         }
 
         public override Action<IMapperConfigurationExpression> ActionInitialConfiguration => c => { };

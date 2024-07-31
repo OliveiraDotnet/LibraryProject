@@ -2,7 +2,7 @@
 
 namespace LibraryNet.Repository.Models
 {
-    public class Author :IRecordElement
+    public class Author : IRecordElement
     {
         public string Id { get; set; }
         public string Name { get; set; }
