@@ -1,3 +1,7 @@
+using LibraryNet.Utils;
+using LibraryNet.Utils.DependencyInjection;
+using LibraryNet.Web.Api.Application;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,7 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+ApplicationInitializer.Init(builder.Services)
+                      .SetMappingManager<AutoMapperManager>()
+                      .SetDependencyManager<Factory>()
+                      .Finish();
 
 var app = builder.Build();
 
