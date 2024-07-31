@@ -1,12 +1,10 @@
-﻿using LibraryNet.Core.Enums;
-using LibraryNet.Core.Models.VO;
+﻿using LibraryNet.Core.Models;
 
 namespace LibraryNet.Core.Interfaces.Services
 {
-    public interface IBookServices
+    public interface IBookServices : IServiceBase<Book>
     {
-        Task<IEnumerable<BookVO>> GetAll();
-        Task<IEnumerable<BookVO>> GetByAuthor(string AuthorId);
-        Task<IEnumerable<BookVO>> GetByLiteraryGenre(LiteraryGenre literaryGenre);
+        Task<List<Book>> GetByAuthorAsync(string AuthorId);
+        Task<List<Book>> GetByLiteraryGenreAsync(int literaryGenre);
     }
 }

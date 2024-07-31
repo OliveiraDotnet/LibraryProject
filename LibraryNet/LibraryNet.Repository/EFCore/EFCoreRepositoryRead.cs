@@ -1,5 +1,6 @@
 ﻿using LibraryNet.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using ResourcesText = LibraryNet.Repository.Properties.Resources;
 
 namespace LibraryNet.Repository.EFCore
 {
@@ -13,15 +14,14 @@ namespace LibraryNet.Repository.EFCore
         {
             Context = context;
         }
-
-        public async Task<TEntity> GetByIdAsync(string id)
+        public async Task<TEntity> GetByIdAsync(string id) => await Context.Set<TEntity>().FindAsync(id);
+        public async Task<List<TEntity>> GetBySingleKeyQueryAsync(string table, string column, object key)
         {
-            return await Context.Set<TEntity>().FindAsync(id);
+            FormattableString query = $"{string.Format(ResourcesText.BasicQuerySQL, table, column, key)}";
+            var entities = await Context.Set<TEntity>().FromSql(query)
+                                                       .ToListAsync();
+            return entities;
         }
-
-        public async Task<List<TEntity>> GetAllAsync()
-        {
-            return await Context.Set<TEntity>().ToListAsync();
-        }
+        public async Task<List<TEntity>> GetAllAsync() => await Context.Set<TEntity>().ToListAsync();
     }
 }

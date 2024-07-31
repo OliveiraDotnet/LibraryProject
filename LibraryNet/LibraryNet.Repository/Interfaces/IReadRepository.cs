@@ -2,7 +2,7 @@
 {
     public interface IReadRepository<T>
     {
-        Task<T> GetByIdAsync(string id);
+        Task<List<T>> GetBySingleKeyQueryAsync(string table, string column, object key);
         Task<List<T>> GetAllAsync();
     }
 }
