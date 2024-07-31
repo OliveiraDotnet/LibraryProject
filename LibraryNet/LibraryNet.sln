@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryNet.Web.Api", "Libra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryNet.Core", "LibraryNet.Core\LibraryNet.Core.csproj", "{F08D1D3C-E4FC-48EC-B79E-43F2D7CCF00D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryNet.Repository", "LibraryNet.Persistencia\LibraryNet.Repository.csproj", "{861984DC-98AA-4A64-80E4-D2D335CBBE99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryNet.Repository", "LibraryNet.Repository\LibraryNet.Repository.csproj", "{861984DC-98AA-4A64-80E4-D2D335CBBE99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryNet.Utils", "LibraryNet.Utils\LibraryNet.Utils.csproj", "{9B414778-2D8D-47C1-87F8-01D2A35CF9FB}"
 EndProject
