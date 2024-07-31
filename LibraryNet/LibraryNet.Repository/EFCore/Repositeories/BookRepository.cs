@@ -1,4 +1,6 @@
-﻿namespace LibraryNet.Repository.EFCore.Repositeories
+﻿using LibraryNet.Repository.Models;
+
+namespace LibraryNet.Repository.EFCore.Repositeories
 {
     internal class BookRepository : EFCoreRepository<Book, LibraryContext>
     {
