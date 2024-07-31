@@ -26,16 +26,9 @@ namespace LibraryNet.Utils.DependencyInjection
             SetDependencyManagerInstance();
             return this;
         }
-        public ApplicationInitializer AnexerOutroGestorDependencia<T>() where T : DependencyManager
+        public ApplicationInitializer SetMappingManager<T>() where T : IMapManager, new()
         {
-            if (Instance == null)
-                throw new InvalidOperationException("GestorDependencia principal deve ser inicializado primeiro chame SetarGestorDependencia.");
-            Instance.Attach<T>();
-            return this;
-        }
-        public ApplicationInitializer SetarGestorMapeamento<T>() where T : IMapManager, new()
-        {
-            MapManager.Inicializar<T>();
+            MappingManager.Inicializar<T>();
             return this;
         }
         public void Finish() => Instance.Finish();

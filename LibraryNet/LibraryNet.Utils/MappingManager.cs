@@ -4,7 +4,7 @@ using LibraryNet.Utils.Validators;
 
 namespace LibraryNet.Utils
 {
-    public abstract class MapManager : IMapManager
+    public abstract class MappingManager : IMapManager
     {
         public static IMapManager Instance { get; protected set; }
         public static void Inicializar<T>() where T : IMapManager, new()
@@ -24,9 +24,9 @@ namespace LibraryNet.Utils
                 Instance.ActionInitialConfiguration?.Invoke(cfg);
             });
             Instance.AdditionalConfiguration();
-            ((MapManager)Instance).Mapper = config.CreateMapper();
+            ((MappingManager)Instance).Mapper = config.CreateMapper();
         }
-        protected MapManager()
+        protected MappingManager()
         {
         }
 
@@ -43,11 +43,11 @@ namespace LibraryNet.Utils
         {
         }
     }
-    public abstract class MapManager<T> : MapManager where T : IMapManager, new()
+    public abstract class MapManager<T> : MappingManager where T : IMapManager, new()
     {
         public static void Initialize()
         {
-            MapManager.Inicializar<T>();
+            MappingManager.Inicializar<T>();
         }
 
         public override Action<IMapperConfigurationExpression> ActionInitialConfiguration => null;
