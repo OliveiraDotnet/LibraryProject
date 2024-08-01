@@ -12,7 +12,9 @@ namespace LibraryNet.Repository.EFCore
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfiguration(new MappingBook());
+            modelBuilder.ApplyConfiguration(new MappingBook())
+                        .ApplyConfiguration(new MappingAuthor())
+                        .ApplyConfiguration(new MappingPublishCompany());
         }
     }
 }

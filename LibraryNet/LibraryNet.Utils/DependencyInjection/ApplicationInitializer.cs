@@ -28,7 +28,7 @@ namespace LibraryNet.Utils.DependencyInjection
         }
         public ApplicationInitializer SetMappingManager<T>() where T : IMapManager, new()
         {
-            MappingManager.Inicializar<T>();
+            MappingManager.Init<T>();
             return this;
         }
         public void Finish() => Instance.Finish();

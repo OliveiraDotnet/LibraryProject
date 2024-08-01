@@ -1,12 +1,11 @@
 ﻿using LibraryNet.Repository.Models;
 
-namespace LibraryNet.Repository.EFCore.Repositeories
+namespace LibraryNet.Repository.EFCore.Repositories
 {
-    internal class BookRepository : EFCoreRepository<Book, LibraryContext>
+    public class BookRepository : EFCoreRepository<Book>
     {
         public BookRepository(LibraryContext context) : base(context)
         {
-
         }
     }
 }

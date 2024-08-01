@@ -3,11 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryNet.Repository.EFCore
 {
-    public abstract class EFCoreRepository<TEntity, TContext> : EFCoreRepositoryRead<TEntity, TContext>, IWriteRepository<TEntity>
-    where TEntity : class, IRecordElement
-    where TContext : DbContext
+    public abstract class EFCoreRepository<TEntity> : EFCoreRepositoryRead<TEntity>, IWriteRepository<TEntity> where TEntity : class, IRecordElement
     {
-        public EFCoreRepository(TContext context) : base(context)
+        protected EFCoreRepository(DbContext contexto) : base(contexto)
         {
         }
 

@@ -4,13 +4,11 @@ using ResourcesText = LibraryNet.Repository.Properties.Resources;
 
 namespace LibraryNet.Repository.EFCore
 {
-    public class EFCoreRepositoryRead<TEntity, TContext> : IReadRepository<TEntity>
-    where TEntity : class, IRecordElement
-    where TContext : DbContext
+    public class EFCoreRepositoryRead<TEntity> : IReadRepository<TEntity> where TEntity : class, IRecordElement
     {
-        protected DbContext Context { get; }
+        protected virtual DbContext Context { get; }
 
-        protected EFCoreRepositoryRead(TContext context)
+        protected EFCoreRepositoryRead(DbContext context)
         {
             Context = context;
         }

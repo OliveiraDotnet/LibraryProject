@@ -7,7 +7,7 @@ namespace LibraryNet.Utils
     public abstract class MappingManager : IMapManager
     {
         public static IMapManager Instance { get; protected set; }
-        public static void Inicializar<T>() where T : IMapManager, new()
+        public static void Init<T>() where T : IMapManager, new()
         {
             if (Instance != null)
                 return;
@@ -45,9 +45,9 @@ namespace LibraryNet.Utils
     }
     public abstract class MapManager<T> : MappingManager where T : IMapManager, new()
     {
-        public static void Initialize()
+        public static void Init()
         {
-            MappingManager.Inicializar<T>();
+            MappingManager.Init<T>();
         }
 
         public override Action<IMapperConfigurationExpression> ActionInitialConfiguration => null;

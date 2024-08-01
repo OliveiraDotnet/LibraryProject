@@ -1,4 +1,9 @@
-﻿using LibraryNet.Repository.EFCore;
+﻿using AutoMapper;
+using LibraryNet.Core.Interfaces.Services;
+using LibraryNet.Core.Services;
+using LibraryNet.Repository.EFCore;
+using LibraryNet.Repository.EFCore.Repositories;
+using LibraryNet.Repository.Interfaces;
 using LibraryNet.Utils;
 using LibraryNet.Utils.DependencyInjection;
 using LibraryNet.Utils.Interfaces;
@@ -15,15 +20,25 @@ namespace LibraryNet.Web.Api.Application
 
         protected override void MapConfigure()
         {
-            ServiceCollection.AddSingleton(MappingManager.Instance.Mapper)
+            ServiceCollection.AddSingleton<IMapper>(AutoMapperManager.Instance.Mapper)
                              .AddSingleton<IConfigurationManagerUtil, ConfigurationManagerUtil>();
             //.AddSingleton<ICacheObjetos, CacheObjetosMemory>()
 
             var configuration = ServiceCollection.BuildServiceProvider().GetService<IConfiguration>();
-            var opcoes = new DbContextOptionsBuilder<LibraryContext>().UseLazyLoadingProxies().UseSqlServer(configuration["SqlServerConnection"])
-                                                                      .Options;
 
-            ServiceCollection.AddScoped<DbContext>(s => new LibraryContext(opcoes));
+            ServiceCollection.AddDbContext<LibraryContext>(o => o.UseLazyLoadingProxies()
+                                                                 .UseSqlServer(configuration["SqlServerConnection"]));
+            //Services
+            ServiceCollection.AddScoped<IBookServices, BookServices>()
+                             .AddScoped<IAuthorServices, AuthorServices>()
+                             .AddScoped<IPublishCompanyServices, PublishCompanyServices>();
+            //Repositories
+            ServiceCollection.AddScoped<IReadRepository<Repository.Models.Book>, BookRepository>()
+                             .AddScoped<IWriteRepository<Repository.Models.Book>, BookRepository>()
+                             .AddScoped<IReadRepository<Repository.Models.Author>, AuthorRepository>()
+                             .AddScoped<IWriteRepository<Repository.Models.Author>, AuthorRepository>()
+                             .AddScoped<IReadRepository<Repository.Models.PublishCompany>, PublishCompanyRepository>()
+                             .AddScoped<IWriteRepository<Repository.Models.PublishCompany>, PublishCompanyRepository>();
 
             ServiceCollection.AddSwaggerGen(c =>
             {

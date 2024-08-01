@@ -1,12 +1,16 @@
 ﻿using AutoMapper;
+using FluentValidation.TestHelper;
 using LibraryNet.Utils.DependencyInjection;
 
 namespace LibraryNet.Utils.Extensions
 {
     public static class TypeExtension
     {
+        public static bool HaveAnnotation<TAtributo>(this Type tipo) where TAtributo : Attribute
+        {
+            return tipo.GetCustomAttributes(typeof(TAtributo), true).Any();
+        }
         public static T Inject<T, D>(this T obj, D complement) => DependencyManager.Instance.GetInstance<IMapper>().Map(complement, obj);
-
         public static T Like<T>(this object obj, bool notMapper = false, bool allowException = false, T defaultValue = default)
         {
             try
@@ -32,7 +36,7 @@ namespace LibraryNet.Utils.Extensions
 
                 return (T)obj;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 if (allowException)
                     throw;
