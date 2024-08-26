@@ -8,14 +8,15 @@ namespace LibraryNet.Core.Configuration
         public MappingProfileCore()
         {
             CreateMap<Models.Book, Repository.Models.Book>().ReverseMap();
+            CreateMap<Models.Book, Repository.Models.Book>().ReverseMap();
             CreateMap<Models.Author, Repository.Models.Author>().ReverseMap();
-            CreateMap<Models.PublishCompany, Repository.Models.PublishCompany>().ReverseMap();
+            CreateMap<Models.Publisher, Repository.Models.Publisher>().ReverseMap();
 
             CreateMap<Models.Book, BookVO>().ForMember(vo => vo.Author, map => map.MapFrom(d => d.Author.Name))
-                                            .ForMember(vo => vo.PublishCompany, map => map.MapFrom(d => d.PublishCompany.Name));
+                                            .ForMember(vo => vo.Publisher, map => map.MapFrom(d => d.Publisher.Name));
 
             CreateMap<AuthorVO, Models.Author>();
-            CreateMap<PublishCompanyVO, Models.PublishCompany>();
+            CreateMap<Publisher, Models.Publisher>();
         }
     }
 }

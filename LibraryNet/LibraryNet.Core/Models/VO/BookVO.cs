@@ -11,7 +11,7 @@ namespace LibraryNet.Core.Models.VO
         public string ReleaseYear { get; set; }
         public decimal Price { get; set; }
         public LiteraryGenre Category { get; set; }
-        public string PublishCompany { get; set; }
+        public string Publisher { get; set; }
         public int NumberPages { get; set; }
         public string Review { get; set; }
         public string Description { get; set; }

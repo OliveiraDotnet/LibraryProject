@@ -5,18 +5,18 @@ using LibraryNet.Utils.Extensions;
 
 namespace LibraryNet.Core.Services
 {
-    public class PublishCompanyServices : IPublishCompanyServices
+    public class PublishCompanyServices : IPublisherServices
     {
-        protected IReadRepository<Repository.Models.PublishCompany> ReadRepositoryPublishCompany { get; }
-        protected IWriteRepository<Repository.Models.PublishCompany> WriteRepositoryPublishCompany { get; }
-        public PublishCompanyServices(IReadRepository<Repository.Models.PublishCompany> readRepositoryPublishCompany, IWriteRepository<Repository.Models.PublishCompany> writeRepositoryPublishCompany)
+        protected IReadRepository<Repository.Models.Publisher> ReadRepositoryPublisher { get; }
+        protected IWriteRepository<Repository.Models.Publisher> WriteRepositoryPublisher { get; }
+        public PublishCompanyServices(IReadRepository<Repository.Models.Publisher> readRepositoryPublisher, IWriteRepository<Repository.Models.Publisher> writeRepositoryPublisher)
         {
-            ReadRepositoryPublishCompany = readRepositoryPublishCompany;
-            WriteRepositoryPublishCompany = writeRepositoryPublishCompany;
+            ReadRepositoryPublisher = readRepositoryPublisher;
+            WriteRepositoryPublisher = writeRepositoryPublisher;
         }
-        public async Task CreateAsync(PublishCompany publishCompany) => await WriteRepositoryPublishCompany.CreateAsync(publishCompany.Like<Repository.Models.PublishCompany>());
-        public async Task DeleteAsync(string publishCompanyId) => await WriteRepositoryPublishCompany.DeleteAsync(new Repository.Models.PublishCompany { Id = publishCompanyId});
-        public async Task<List<PublishCompany>> GetAllAsync() => (await ReadRepositoryPublishCompany.GetAllAsync()).Like<List<PublishCompany>>();
-        public async Task UpdateAsync(PublishCompany publishCompany) => await WriteRepositoryPublishCompany.UpdateAsync(publishCompany.Like<Repository.Models.PublishCompany>());
+        public async Task CreateAsync(Publisher publishCompany) => await WriteRepositoryPublisher.CreateAsync(publishCompany.Like<Repository.Models.Publisher>());
+        public async Task DeleteAsync(string publishCompanyId) => await WriteRepositoryPublisher.DeleteAsync(new Repository.Models.Publisher { Id = publishCompanyId});
+        public async Task<List<Publisher>> GetAllAsync() => (await ReadRepositoryPublisher.GetAllAsync()).Like<List<Publisher>>();
+        public async Task UpdateAsync(Publisher publishCompany) => await WriteRepositoryPublisher.UpdateAsync(publishCompany.Like<Repository.Models.Publisher>());
     }
 }

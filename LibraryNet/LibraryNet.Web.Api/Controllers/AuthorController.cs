@@ -9,6 +9,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace LibraryNet.Web.Api.Controllers
 {
+    [SwaggerTag("Manages processes related to Authors")]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthorController : ControllerBase

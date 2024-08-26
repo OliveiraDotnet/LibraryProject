@@ -2,7 +2,7 @@
 
 namespace LibraryNet.Core.Interfaces.Services
 {
-    public interface IPublishCompanyServices : IServiceBase<PublishCompany>
+    public interface IPublisherServices : IServiceBase<Publisher>
     {
     }
 }

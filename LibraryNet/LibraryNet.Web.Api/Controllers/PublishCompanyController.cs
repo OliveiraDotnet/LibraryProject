@@ -8,13 +8,14 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace LibraryNet.Web.Api.Controllers
 {
+    [SwaggerTag("Manages processes related to Publishing Companies")]
     [Route("api/[controller]")]
     [ApiController]
     public class PublishCompanyController : ControllerBase
     {
-        protected IPublishCompanyServices Services { get; }
+        protected IPublisherServices Services { get; }
         protected ILogger<PublishCompanyController> Log { get; }
-        public PublishCompanyController(IPublishCompanyServices services, ILogger<PublishCompanyController> log)
+        public PublishCompanyController(IPublisherServices services, ILogger<PublishCompanyController> log)
         {
             Services = services;
             Log = log;
@@ -22,12 +23,12 @@ namespace LibraryNet.Web.Api.Controllers
 
         [HttpPost("Create")]
         [SwaggerOperation(Summary = "Create a PublishCompany", Description = "")]
-        [SwaggerResponse(200, "PublishCompany created with Success", typeof(PublishCompany))]
+        [SwaggerResponse(200, "PublishCompany created with Success", typeof(Core.Models.Publisher))]
         [SwaggerResponse(400, "Bad Request", typeof(ErrorResponse))]
         [SwaggerResponse(500, "Internal Server Error", typeof(ErrorResponse))]
-        public async Task<IActionResult> CreatePublishCompanyAsync(PublishCompanyVO PublishCompanyVO)
+        public async Task<IActionResult> CreatePublishCompanyAsync(Core.Models.VO.Publisher PublishCompanyVO)
         {
-            var publishCompany = PublishCompanyVO.Like<PublishCompany>();
+            var publishCompany = PublishCompanyVO.Like<Core.Models.Publisher>();
             await Services.CreateAsync(publishCompany);
             return Ok();
         }
