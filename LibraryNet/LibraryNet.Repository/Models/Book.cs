@@ -12,8 +12,8 @@ namespace LibraryNet.Repository.Models
         public string ReleaseYear { get; set; }
         public decimal Price { get; set; }
         public short Category { get; set; }
-        public string PublishCompanyId { get; set; }
-        public virtual PublishCompany PublishCompany { get; set; }
+        public string PublisherId { get; set; }
+        public virtual Publisher Publisher { get; set; }
         public int NumberPages { get; set; }
         public string Review { get; set; }
         public string Description { get; set; }

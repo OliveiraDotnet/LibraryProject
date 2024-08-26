@@ -2,7 +2,7 @@
 
 namespace LibraryNet.Repository.Models
 {
-    public class PublishCompany : IRecordElement
+    public class Publisher : IRecordElement
     {
         public string Id { get; set; }
         public string Name { get; set; }

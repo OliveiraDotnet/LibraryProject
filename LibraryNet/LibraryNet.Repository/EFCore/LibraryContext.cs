@@ -13,8 +13,9 @@ namespace LibraryNet.Repository.EFCore
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new MappingBook())
+                        .ApplyConfiguration(new MappingCoupon())
                         .ApplyConfiguration(new MappingAuthor())
-                        .ApplyConfiguration(new MappingPublishCompany());
+                        .ApplyConfiguration(new MappingPublisher());
         }
     }
 }

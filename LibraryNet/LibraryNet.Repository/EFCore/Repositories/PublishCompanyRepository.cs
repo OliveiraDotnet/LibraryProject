@@ -2,7 +2,7 @@
 
 namespace LibraryNet.Repository.EFCore.Repositories
 {
-    public class PublishCompanyRepository : EFCoreRepository<PublishCompany>
+    public class PublishCompanyRepository : EFCoreRepository<Publisher>
     {
         public PublishCompanyRepository(LibraryContext context) : base(context)
         {
