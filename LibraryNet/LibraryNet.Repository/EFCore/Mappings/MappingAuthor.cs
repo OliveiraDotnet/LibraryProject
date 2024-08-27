@@ -10,9 +10,12 @@ namespace LibraryNet.Repository.EFCore.Mappings
         {
             builder.HasKey(e => e.Id);
             builder.Property(a => a.Name)
-                   .HasMaxLength(50)
+                   .HasMaxLength(100)
                    .IsRequired(true);
-            builder.HasMany(a => a.Books);
+
+            builder.HasMany(a => a.Books)
+                   .WithOne(a => a.Author)
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

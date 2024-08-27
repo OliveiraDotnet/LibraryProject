@@ -15,6 +15,6 @@ namespace LibraryNet.Core.Models
         public int NumberPages { get; set; }
         public string Review { get; set; }
         public string Description { get; set; }
-        public IEnumerable<Language> Translations { get; set; }
+        public Language Translation { get; set; }
     }
 }

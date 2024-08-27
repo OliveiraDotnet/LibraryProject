@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryNet.Core", "LibraryN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryNet.Repository", "LibraryNet.Repository\LibraryNet.Repository.csproj", "{861984DC-98AA-4A64-80E4-D2D335CBBE99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryNet.Utils", "LibraryNet.Utils\LibraryNet.Utils.csproj", "{9B414778-2D8D-47C1-87F8-01D2A35CF9FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryNet.Utils", "LibraryNet.Utils\LibraryNet.Utils.csproj", "{9B414778-2D8D-47C1-87F8-01D2A35CF9FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryNet.Testes", "LibraryNet.Testes\LibraryNet.Testes.csproj", "{83AECD9F-3827-4541-BCFB-D8BD65865B90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9B414778-2D8D-47C1-87F8-01D2A35CF9FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B414778-2D8D-47C1-87F8-01D2A35CF9FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B414778-2D8D-47C1-87F8-01D2A35CF9FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83AECD9F-3827-4541-BCFB-D8BD65865B90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83AECD9F-3827-4541-BCFB-D8BD65865B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83AECD9F-3827-4541-BCFB-D8BD65865B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83AECD9F-3827-4541-BCFB-D8BD65865B90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

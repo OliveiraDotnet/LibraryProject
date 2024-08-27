@@ -11,6 +11,5 @@ namespace LibraryNet.Repository.MongoDB.Repositories
         public OrderRepositoryMongo(IMongoClient mongoCliente) : base(mongoCliente)
         {
         }
-
     }
 }

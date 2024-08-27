@@ -10,21 +10,21 @@ namespace LibraryNet.Repository.EFCore.Mappings
         {
             builder.HasKey(e => e.Id);
             builder.Property(b => b.Name)
-                   .HasMaxLength(50)
+                   .HasMaxLength(100)
                    .IsRequired(true);
+
             builder.Property(b => b.Category)
-                   .HasMaxLength(50)
-                   .IsRequired(true); ;
+                   .IsRequired(true);
+
             builder.Property(b => b.Price)
                    .HasColumnType("decimal")
                    .IsRequired(true);
 
-            builder.HasOne(b => b.Author)
-                   .WithMany(a => a.Books)
-                   .OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(b => b.Publisher)
-                   .WithMany(a => a.Books)
-                   .OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(p => p.Author)
+                   .WithMany(p => p.Books);
+
+            builder.HasOne(p => p.Publisher)
+                   .WithMany(p => p.Books);
         }
     }
 }
