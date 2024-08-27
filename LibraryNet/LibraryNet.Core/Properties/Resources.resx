@@ -120,4 +120,16 @@
   <data name="GenericProcessError" xml:space="preserve">
     <value>An error occurred while processing the request.</value>
   </data>
+  <data name="NameTableAuthor" xml:space="preserve">
+    <value>Authors</value>
+  </data>
+  <data name="NameTableBook" xml:space="preserve">
+    <value>Books</value>
+  </data>
+  <data name="NameTableCoupon" xml:space="preserve">
+    <value>Coupons</value>
+  </data>
+  <data name="NameTablePublisher" xml:space="preserve">
+    <value>Publishers</value>
+  </data>
 </root>

@@ -6,5 +6,6 @@ namespace LibraryNet.Core.Interfaces.Services
     {
         Task<List<Book>> GetByAuthorAsync(string AuthorId);
         Task<List<Book>> GetByLiteraryGenreAsync(int literaryGenre);
+        Task<List<Book>> GetByPublisherAsync(string publisherId);
     }
 }

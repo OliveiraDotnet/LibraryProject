@@ -68,5 +68,41 @@ namespace LibraryNet.Core.Properties {
                 return ResourceManager.GetString("GenericProcessError", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authors.
+        /// </summary>
+        public static string NameTableAuthor {
+            get {
+                return ResourceManager.GetString("NameTableAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Books.
+        /// </summary>
+        public static string NameTableBook {
+            get {
+                return ResourceManager.GetString("NameTableBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coupons.
+        /// </summary>
+        public static string NameTableCoupon {
+            get {
+                return ResourceManager.GetString("NameTableCoupon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publishers.
+        /// </summary>
+        public static string NameTablePublisher {
+            get {
+                return ResourceManager.GetString("NameTablePublisher", resourceCulture);
+            }
+        }
     }
 }

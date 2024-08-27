@@ -15,8 +15,8 @@ namespace LibraryNet.Repository.EFCore
         public async Task<TEntity> GetByIdAsync(string id) => await Context.Set<TEntity>().FindAsync(id);
         public async Task<List<TEntity>> GetBySingleKeyQueryAsync(string table, string column, object key)
         {
-            FormattableString query = $"{string.Format(ResourcesText.BasicQuerySQL, table, column, key)}";
-            var entities = await Context.Set<TEntity>().FromSql(query)
+            var sqlQuery = $"{string.Format(ResourcesText.BasicQuerySQL, table, column, key)}";
+            var entities = await Context.Set<TEntity>().FromSqlRaw(sqlQuery)
                                                        .ToListAsync();
             return entities;
         }
