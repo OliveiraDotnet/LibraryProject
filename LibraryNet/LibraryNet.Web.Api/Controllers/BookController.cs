@@ -32,6 +32,39 @@ namespace LibraryNet.Web.Api.Controllers
             return Ok(result);
         }
 
+        [HttpGet("GetByAuthor/{authorId}")]
+        [SwaggerOperation(Summary = "Get all books by Author Id", Description = "")]
+        [SwaggerResponse(200, "Success", typeof(List<Book>))]
+        [SwaggerResponse(400, "Bad Request", typeof(ErrorResponse))]
+        [SwaggerResponse(500, "Internal Server Error", typeof(ErrorResponse))]
+        public async Task<IActionResult> GetByAuthorAsync(string authorId)
+        {
+            var result = await Services.GetByAuthorAsync(authorId);
+            return Ok(result);
+        }
+
+        [HttpGet("GetByLiteraryGenre/{literaryGenre}")]
+        [SwaggerOperation(Summary = "Get all books by literaryGenre", Description = "")]
+        [SwaggerResponse(200, "Success", typeof(List<Book>))]
+        [SwaggerResponse(400, "Bad Request", typeof(ErrorResponse))]
+        [SwaggerResponse(500, "Internal Server Error", typeof(ErrorResponse))]
+        public async Task<IActionResult> GetByLiteraryGenreAsync(int literaryGenre)
+        {
+            var result = await Services.GetByLiteraryGenreAsync(literaryGenre);
+            return Ok(result);
+        }
+
+        [HttpGet("GetByPublisher/{publisherId}")]
+        [SwaggerOperation(Summary = "Get all books by publisher Id", Description = "")]
+        [SwaggerResponse(200, "Success", typeof(List<Book>))]
+        [SwaggerResponse(400, "Bad Request", typeof(ErrorResponse))]
+        [SwaggerResponse(500, "Internal Server Error", typeof(ErrorResponse))]
+        public async Task<IActionResult> GetByPublisherAsync(string publisherId)
+        {
+            var result = await Services.GetByPublisherAsync(publisherId);
+            return Ok(result);
+        }
+
         [HttpPost("Create")]
         [SwaggerOperation(Summary = "Create a book", Description = "")]
         [SwaggerResponse(200, "Book created with Success", typeof(string))]
